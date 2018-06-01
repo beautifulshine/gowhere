@@ -13,7 +13,7 @@
      ">
     <!-- 完成请求和注解POJO的映射 -->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-
+     
     <!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
         p:prefix="/WEB-INF/pages/" p:suffix=".jsp" />
@@ -25,4 +25,5 @@
 	    <property name="defaultEncoding" value="UTF-8" />  
 	    <property name="resolveLazily" value="true" />  
 	 </bean> 
+	 <mvc:annotation-driven />
 </beans>

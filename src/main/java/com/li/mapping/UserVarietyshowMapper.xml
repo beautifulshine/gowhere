@@ -112,4 +112,11 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+    <select id="getFamilyIdByShowId" parameterType="Long" resultType="Long">
+        SELECT family_id
+        FROM user_varietyshow 
+        WHERE variety_show_id = #{showId}
+    </select>
+  
 </mapper>

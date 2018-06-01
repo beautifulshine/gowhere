@@ -24,5 +24,12 @@ public interface UserVarietyshowService {
      * @param id
      * @return
      */
-        UserVarietyshow selectByPrimaryKey(Long id);
+     UserVarietyshow selectByPrimaryKey(Long id);
+    /**
+     * 根据节目id查询家庭id集合
+     * @param showId
+     * @return
+     */
+    List<Long> getFamilyIdByShowId(Long showId);  
+        
 }

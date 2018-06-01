@@ -33,4 +33,11 @@ public interface UserVarietyshowMapper {
     int updateByPrimaryKeySelective(UserVarietyshow record);
 
     int updateByPrimaryKey(UserVarietyshow record);
+    
+    /**
+     * 根据节目id获取家庭组id列表
+     * @param showId
+     * @return
+     */
+    public List<Long> getFamilyIdByShowId(Long showId);
 }

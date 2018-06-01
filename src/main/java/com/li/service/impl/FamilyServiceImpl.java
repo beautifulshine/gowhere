@@ -1,6 +1,9 @@
 package com.li.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.li.dao.FamilyMapper;
@@ -11,19 +14,17 @@ public class FamilyServiceImpl implements FamilyService{
 /**
  * 
  */
+	@Resource
 	private FamilyMapper familyMapper;
 
-public FamilyMapper getFamilyMapper() {
-	return familyMapper;
-}
-@Autowired
-public void setFamilyMapper(FamilyMapper familyMapper) {
-	this.familyMapper = familyMapper;
-}
 
 @Override
 public Family selectByPrimaryKey(Long id) {
 	return familyMapper.selectByPrimaryKey(id);
+}
+@Override
+public List<Family> batchGetFamilyListByIds(List<Long> familyIds) {
+	return familyMapper.batchGetFamilyListByIds(familyIds);
 }
 	
 	

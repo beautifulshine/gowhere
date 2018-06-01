@@ -9,6 +9,13 @@
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="status" property="status" jdbcType="TINYINT" />
   </resultMap>
+   <resultMap id="Varietyshow" type="com.li.vo.UserVarietyshowVo">
+      <result property="id" column="id"/>
+      <result property="name" column="name"/>
+      <result property="area" column="area"/>
+      <result property="createTime" column="create_time"/>
+      <result property="status" column="status"/>
+  </resultMap>
   <sql id="Base_Column_List" >
     id, name, area, create_time, update_time, status
   </sql>
@@ -101,4 +108,41 @@
       status = #{status,jdbcType=TINYINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+    <select id="getUserVarietyshowList" resultMap="Varietyshow">
+        SELECT <include refid="Base_Column_List" />
+        FROM varietyshow 
+        <where>
+            status = 1
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="area != null and area != ''">
+                and area = #{area}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+        Limit #{startNum},#{pageSize}
+    </select>
+    
+    <select id="getUserVarietyshowCount" resultType="Integer">
+        SELECT COUNT(1)
+        FROM varietyshow 
+        <where>
+            status = 1
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="area != null and area != ''">
+                and area = #{area}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+        </where>
+    </select>
+    
+  
 </mapper>

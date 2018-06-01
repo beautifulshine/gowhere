@@ -168,6 +168,13 @@
 	    <artifactId>jackson-mapper-asl</artifactId>
 	    <version>1.9.13</version>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.tomcat/annotations-api -->
+	<dependency>
+	    <groupId>org.apache.tomcat</groupId>
+	    <artifactId>annotations-api</artifactId>
+	    <version>6.0.13</version>
+	</dependency>
+	
     </dependencies>
     <build>
         <finalName>maven-ssm-web</finalName>

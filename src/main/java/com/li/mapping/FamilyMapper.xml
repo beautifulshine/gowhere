@@ -97,4 +97,14 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <select id="batchGetFamilyListByIds" parameterType="Long" resultMap="BaseResultMap">
+  SELECT 
+  <include refid="Base_Column_List" />
+  from family
+  where id in
+  <foreach collection="list" item="id"  open="(" close=")" separator=",">
+   #{id}
+  </foreach>
+  </select>
 </mapper>
